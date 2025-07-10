@@ -12,6 +12,12 @@ export const products = [
     name: 'Choco Light',
     price: 20,
     image: proteinShake
+  },
+  {
+    id: 2,
+    name: 'Choco Deslactosado',
+    price: 30,
+    image: proteinShake
   }
     // Add more products as needed
 ];
