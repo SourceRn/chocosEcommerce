@@ -14,7 +14,7 @@ export const products = [
     image: proteinShake
   },
   {
-    id: 2,
+    id: 3,
     name: 'Choco Deslactosado',
     price: 30,
     image: proteinShake
