@@ -22,11 +22,11 @@ const TermsAndConditions = () => (
         Seleccione los productos que desea adquirir y agréguelos al carrito de
         compras.
       </li>
-      <li>Complete el formulario de datos personales y dirección de envío.</li>
+      <li>Complete el formulario de datos personales.</li>
       <li>Elija el método de pago y confirme su pedido.</li>
       <li>
         Recibirá un correo electrónico de confirmación con los detalles de su
-        compra.
+        compra y horario para tomar su pedido.
       </li>
     </ul>
     <h2>2. Precios y Pagos</h2>
@@ -39,10 +39,10 @@ const TermsAndConditions = () => (
         Nos reservamos el derecho de modificar los precios en cualquier momento.
       </li>
     </ul>
-    <h2>3. Envíos y Entregas</h2>
+    <h2>3. Entregas</h2>
     <ul>
       <li>
-        Los envíos se realizan a la dirección proporcionada por el cliente.
+        Los pedidos son agendados y preparados 1 hora después de pedirlos, el cliente debe pasar a recogerlos, dado el caso se exceda un tiempo de 6 horas una vez hecho el pedido automáticamente es cancelado.
       </li>
       <li>
         El tiempo estimado de entrega se indica durante el proceso de compra.
@@ -52,16 +52,7 @@ const TermsAndConditions = () => (
     <h2>4. Devoluciones y Reembolsos</h2>
     <ul>
       <li>
-        Puede solicitar la devolución de un producto dentro de los 14 días
-        posteriores a la recepción.
-      </li>
-      <li>
-        El producto debe estar en perfectas condiciones y en su empaque
-        original.
-      </li>
-      <li>
-        Los reembolsos se procesarán una vez recibido y verificado el producto
-        devuelto.
+        Solo se pueden realizar devoluciones y reembolsos si el pedido resulta distinto al pedido en el E-Commerce, caso contrario coincida, no se podrán hacer cambios.
       </li>
     </ul>
     <h2>5. Protección de Datos</h2>

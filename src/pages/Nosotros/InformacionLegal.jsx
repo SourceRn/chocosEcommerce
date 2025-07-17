@@ -21,7 +21,6 @@ const IdentificacionEcommerce = () => {
       <h2>Métodos de Pago Aceptados</h2>
       <ul>
         <li>Tarjeta de crédito y débito (Visa, Mastercard, AMEX)</li>
-        <li>PayPal</li>
       </ul>
 
       <h2>Políticas de Entrega</h2>
@@ -31,7 +30,7 @@ const IdentificacionEcommerce = () => {
 
       <h2>Política de Cancelaciones y Devoluciones</h2>
       <p>
-        Puedes cancelar tu pedido antes de que sea enviado. Las devoluciones se aceptan dentro de los 7 días posteriores a la entrega, siempre que el producto no haya sido abierto o usado.
+        Puedes cancelar tu pedido dentro de un tiempo de 1 hora después de realizarlo. Las devoluciones solo se aceptan si el ticket de compra es distinto a lo que le esta siendo entregado.
       </p>
 
       <h2>Jurisdicción</h2>

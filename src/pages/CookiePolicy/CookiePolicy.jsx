@@ -6,7 +6,7 @@ const CookiePolicy = () => {
       <h1>Política de Cookies</h1>
 
       <p>
-        En <strong>ChocoShop</strong>, utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Esta política explica qué son las cookies, cómo las usamos y cómo puedes controlarlas.
+        En <strong>ChocosElInge</strong>, utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Esta política explica qué son las cookies, cómo las usamos y cómo puedes controlarlas.
       </p>
 
       <h2>¿Qué son las cookies?</h2>

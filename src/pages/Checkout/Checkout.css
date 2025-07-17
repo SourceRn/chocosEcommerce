@@ -50,3 +50,44 @@
 .checkout-form button:hover {
   background-color: #1b5e20;
 }
+
+.expiration-input,
+.cvc-input {
+  max-width: 150px;
+}
+
+.checkout-summary {
+  background-color: #f8f1e9;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.checkout-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+  color: #4b2e2a;
+}
+
+.checkout-total {
+  margin-top: 1rem;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #6b4c3b;
+}
+
+.empty-cart {
+  text-align: center;
+  font-size: 1rem;
+  color: #777;
+}

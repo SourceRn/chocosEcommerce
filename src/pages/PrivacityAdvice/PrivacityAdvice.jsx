@@ -31,7 +31,7 @@ const PrivacityAdvice = () => (
     </p>
     <h2>Cumplimiento de Protección de Datos</h2>
     <p>
-      En <strong>ChocoShop</strong> cumplimos con la{" "}
+      En <strong>ChocosElInge</strong> cumplimos con la{" "}
       <strong>
         Ley Federal de Protección de Datos Personales en Posesión de los
         Particulares

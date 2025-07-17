@@ -4,16 +4,17 @@ import successImage from '../../assets/succesful-purchase.png';
 
 const Confirmation = () => (
   <div className='confirmation'>
-    <div
-      className="confirmation-img"
-    ></div>
-    <div className='confirmation-message'>
-      <h2>¡Gracias por tu compra!</h2>
-      <p>
-        Tu pedido estará listo para recoger entre{' '}
-        <span className="pickup-time">2:00 PM y 3:00 PM</span>.
-      </p>
-    </div>
+    <h2>Thank you for your purchase</h2>
+
+    <img
+      src={successImage}
+      alt="Purchase success"
+      className='confirmation-image'
+    />
+
+    <p>Your order will be ready for pickup between:</p>
+
+    <div className='pickup-time'>3:00pm – 4:00pm</div>
   </div>
 );
 
