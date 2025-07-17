@@ -17,11 +17,13 @@ const ProductDetail = () => {
   return (
     <div className='product-detail'>
       <img src={product.image} alt={product.name}/>
-      <h2>{product.name}</h2>
-      <p>${product.price}</p>
-      <button onClick={() => addToCart({ ...product, quantity: 1 })}>
-        Agregar al carrito
-      </button>
+      <div className="product-info">
+        <h2>{product.name}</h2>
+        <p>${product.price}</p>
+        <button onClick={() => addToCart({ ...product, quantity: 1 })}>
+          Agregar al carrito
+        </button>
+      </div>
     </div>
   );
 };

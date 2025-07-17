@@ -9,7 +9,7 @@ const ProductList = () => {
     <section className="product-list">
       <h2>Todos los productos</h2>
       <div className="product-grid">
-        {products.map((p) => <ProductCard key={p.id} product={p} />)}
+        {products.map((p) => <ProductCard key={p.id} product={p}/>)}
       </div>
     </section>
   );

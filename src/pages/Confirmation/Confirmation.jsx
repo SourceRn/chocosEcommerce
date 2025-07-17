@@ -1,10 +1,19 @@
 import React from 'react';
-import './Confirmation.css'; // Assuming you have a CSS file for styling
+import './Confirmation.css';
+import successImage from '../../assets/succesful-purchase.png';
 
 const Confirmation = () => (
   <div className='confirmation'>
-    <h2>¡Gracias por tu compra!</h2>
-    <p>Tu pedido estará listo para recoger entre las 2:00 PM y 3:00 PM.</p>
+    <div
+      className="confirmation-img"
+    ></div>
+    <div className='confirmation-message'>
+      <h2>¡Gracias por tu compra!</h2>
+      <p>
+        Tu pedido estará listo para recoger entre{' '}
+        <span className="pickup-time">2:00 PM y 3:00 PM</span>.
+      </p>
+    </div>
   </div>
 );
 

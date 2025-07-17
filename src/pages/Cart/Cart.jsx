@@ -1,28 +1,51 @@
 import React from 'react';
 import { useCart } from '../../contexts/CartContext';
 import { Link } from 'react-router-dom';
-import './Cart.css'; // Assuming you have a CSS file for styling
+import './Cart.css';
 
 const Cart = () => {
-  const { cart, removeFromCart, getTotal } = useCart();
+  const { cart, removeFromCart, getTotal, addToCart } = useCart();
+
+  const decreaseQuantity = (item) => {
+    if (item.quantity > 1) {
+      addToCart({ ...item, quantity: -1 });
+    } else {
+      removeFromCart(item.id);
+    }
+  };
 
   return (
     <div className='cart-container'>
-      <h2>Tu carrito</h2>
+      <h2>Carrito de Compra</h2>
       {cart.length === 0 ? (
-        <p>El carrito está vacío</p>
+        <p className="empty-cart">Tu carrito esta vacío</p>
       ) : (
         <ul>
           {cart.map((item) => (
-            <li key={item.id}>
-              {item.name} x{item.quantity} - ${item.price * item.quantity}
-              <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
+            <li key={item.id} className="cart-item">
+              <div className="cart-info">
+                <h3>{item.name}</h3>
+                <p>${item.price.toFixed(2)}</p>
+                <div className="quantity-control">
+                  <button onClick={() => decreaseQuantity(item)}>-</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => addToCart({ ...item, quantity: 1 })}>+</button>
+                </div>
+                <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
+                  Eliminar
+                </button>
+              </div>
+              <div className="cart-img">
+                <img src={item.image} alt={item.name} />
+              </div>
             </li>
           ))}
         </ul>
       )}
-      <h3 className='cart-total'>Total: ${getTotal()}</h3>
-      <Link to="/checkout">Ir a pagar</Link>
+      <div className="cart-footer">
+        <h3 className='cart-total'>Total: ${getTotal().toFixed(2)}</h3>
+        <Link to="/checkout" className="checkout-btn">Pagar ahora</Link>
+      </div>
     </div>
   );
 };

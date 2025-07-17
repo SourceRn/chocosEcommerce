@@ -4,4 +4,45 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #1b1f2b;
+    position: relative;
+}
+
+main > h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    max-width: 500px;
+    align-self: flex-start;
+    text-align: center;
+    margin-left: 6rem;
+    margin-top: -6rem;
+}
+
+.man-drinking {
+    background-image: url('../../assets/man-drinking.png');
+    background-size: cover;
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    align-self: flex-end;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+
+.chocos {
+  color: #6b4c3b;
+}
+.inge {
+  color: #8b715d;
+}
+
+@media screen and (max-width: 768px) {
+    main > h1 {
+        align-self:auto;
+        margin-left: 0;
+    }
+    .man-drinking {
+        display: none;
+    }
 }

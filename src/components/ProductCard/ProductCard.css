@@ -1,28 +1,47 @@
 .product-card {
-  border: 1px solid #ddd;
+  border: 1px solid #c8c6c6;
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
   transition: box-shadow 0.3s ease;
+  background-color: #f8f1e9;
 }
 
 .product-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .product-card img {
   width: 100px;
   margin: auto;
   margin-bottom: 0.5rem;
-  background-color: #f0f0f0; /* fallback background */
+  background-color: #f0f0f0;
   display: block;
 }
 
 .product-card h3 {
   font-size: 1.2rem;
+  color: #1b1f2b;
 }
 
 .product-card p {
   color: #cc5500;
   font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+/* Nuevo estilo para el botón */
+.product-card a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #6b4c3b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.product-card a:hover {
+  background-color: #8b715d;
 }
