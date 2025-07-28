@@ -1,82 +1,74 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Checkout.css';
-import { useCart } from '../../contexts/CartContext';
+import React, { useEffect } from "react";
+import { useCart } from "../../contexts/CartContext";
+import "./Checkout.css";
 
 const Checkout = () => {
-  const navigate = useNavigate();
   const { cart, getTotal, clearCart } = useCart();
+  const clientId = import.meta.env.VITE_PAYPAL_CLIENT_ID;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    clearCart();
-    navigate('/confirmation');
-  };
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=MXN`;
+    script.addEventListener("load", () => {
+      if (window.paypal) {
+        window.paypal
+          .Buttons({
+            createOrder: (data, actions) => {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    amount: {
+                      value: getTotal().toFixed(2),
+                      currency_code: "MXN",
+                    },
+                  },
+                ],
+              });
+            },
+            onApprove: (data, actions) => {
+              return actions.order.capture().then(function (details) {
+                alert("Pago completado por " + details.payer.name.given_name);
+                clearCart();
+                window.location.href = "/confirmation";
+              });
+            },
+            onError: (err) => {
+              console.error(err);
+              alert("Error en el pago");
+            },
+          })
+          .render("#paypal-button-container");
+      }
+    });
+    document.body.appendChild(script);
+
+    // Limpieza del script si el componente se desmonta
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
-    <form onSubmit={handleSubmit} className='checkout-form'>
+    <div className="checkout-form">
       <h2>Resumen de pago</h2>
 
+      {/* Muestra tus productos y total como ya lo haces */}
       <div className="checkout-summary">
-        {cart.length === 0 ? (
-          <p className="empty-cart">Tu carrito está vacío.</p>
-        ) : (
-          <ul>
-            {cart.map((item) => (
-              <li key={item.id} className="checkout-item">
-                <span>{item.name}</span>
-                <span>x{item.quantity}</span>
-                <span>${(item.price * item.quantity).toFixed(2)}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-        <div className="checkout-total">
+        <ul>
+          {cart.map((item) => (
+            <li key={item.id}>
+              {item.name} x{item.quantity} - ${item.price * item.quantity}
+            </li>
+          ))}
+        </ul>
+        <p>
           <strong>Total:</strong> ${getTotal().toFixed(2)}
-        </div>
+        </p>
       </div>
 
-      <h3>Datos de pago</h3>
-
-      <label>Nombre completo</label>
-      <input type="text" placeholder="Juan Pérez" required />
-
-      <label>Correo electrónico</label>
-      <input type="email" placeholder="juan@email.com" required />
-
-      <label>Número de tarjeta</label>
-      <input
-        type="text"
-        placeholder="1234 5678 9012 3456"
-        pattern="\d{4} \d{4} \d{4} \d{4}"
-        required
-      />
-
-      <div className="payment-row">
-        <div>
-          <label>Expiración</label>
-          <input
-            type="text"
-            placeholder="MM/AA"
-            pattern="\d{2}/\d{2}"
-            className='expiration-input'
-            required
-          />
-        </div>
-        <div>
-          <label>CVC</label>
-          <input
-            type="text"
-            placeholder="123"
-            pattern="\d{3}"
-            className='cvc-input'
-            required
-          />
-        </div>
-      </div>
-
-      <button type="submit">Finalizar compra</button>
-    </form>
+      {/* Botón de PayPal */}
+      <div id="paypal-button-container"></div>
+    </div>
   );
 };
 
