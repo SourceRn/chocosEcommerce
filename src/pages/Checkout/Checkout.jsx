@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useCart } from "../../contexts/CartContext";
 import "./Checkout.css";
 
@@ -68,6 +69,9 @@ const Checkout = () => {
 
       {/* Botón de PayPal */}
       <div id="paypal-button-container"></div>
+      <p>
+        <Link to="/confirmation">Ver confirmación de pedido</Link>
+      </p>
     </div>
   );
 };
